@@ -1,4 +1,5 @@
 
+/*
 function ingresar() {
     let nombreUsuario = prompt("Ingrese su nombre de usuario");
     console.log("Nombre de usuario " + nombreUsuario);
@@ -101,10 +102,34 @@ for (const prop in producto1) {
     console.log(prop);
     console.log(producto1[prop]);
 }
+*/
+
+const productos = [ 'Compus', 'celus', 'plays' , "monitores"]
+
+for (let i =0; i<productos.length;i++) {
+    console.log(productos[i])
+}  
+
+productos.push('Iphone')
+productos.unshift("Placas")
+const compus =productos.slice(1,2);
+
+console.log(productos);
+console.log(compus);
+
+//arrays con objetos
+
+const componentes = [ {id: 1, nombre: "Ryzen 5 3600", precio: "$300"}, {id: 2, nombre: "intel i5 10900k" , precio: "$250"}]
+
+let nuevoComp = prompt("Ingrese un nuevo componente");
+componentes.push(nuevoComp);
+console.log(componentes);
 
 
-
-
+for(const prod of componentes){
+    console.log(prod.nombre);
+    console.log(prod.precio);
+}
 
 
 
