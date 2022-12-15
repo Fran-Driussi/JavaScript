@@ -1,5 +1,5 @@
 
-/*
+
 function ingresar() {
     let nombreUsuario = prompt("Ingrese su nombre de usuario");
     console.log("Nombre de usuario " + nombreUsuario);
@@ -69,15 +69,15 @@ calcularIva(precioProd);
 let num1 = parseInt(prompt("Ingrese un numero para la calculadora"));
 let num2 = parseInt(prompt("Ingrese otro numero para la calculadora"));
 let operacion = prompt("Ingrese la opreacion deseada: '+' , '-', '*' , '/'")
-alert (calculadora(num1, num2, operacion));
+alert(calculadora(num1, num2, operacion));
 
 
 //class 
 
 class Producto {
     constructor(nombre, precio) {
-        this.nombre  = nombre.toLowerCase();
-        this.precio  = parseFloat(precio);
+        this.nombre = nombre.toLowerCase();
+        this.precio = parseFloat(precio);
         this.vendido = false;
     }
     sumaIva() {
@@ -96,40 +96,60 @@ const producto1 = new Producto(nombre, precio);
 producto1.sumaIva();
 producto1.vender();
 
-console.log (producto1);
+console.log(producto1);
+alert ("El precio del procuto con iva es: "+ producto1.precio);
 
 for (const prop in producto1) {
     console.log(prop);
     console.log(producto1[prop]);
 }
-*/
+//arrays
+const products = ['Compus', 'celus', 'plays', "monitores"]
 
-const productos = [ 'Compus', 'celus', 'plays' , "monitores"]
-
-for (let i =0; i<productos.length;i++) {
+for (let i = 0; i < productos.length; i++) {
     console.log(productos[i])
-}  
+}
 
-productos.push('Iphone')
+
 productos.unshift("Placas")
-const compus =productos.slice(1,2);
+const compus = productos.slice(1, 2);
 
 console.log(productos);
 console.log(compus);
 
 //arrays con objetos
 
-const componentes = [ {id: 1, nombre: "Ryzen 5 3600", precio: "$300"}, {id: 2, nombre: "intel i5 10900k" , precio: "$250"}]
+const componentes = [{ id: 1, nombre: "Ryzen 5 3600", precio: "$300" }, { id: 2, nombre: "intel i5 10900k", precio: "$250" }]
 
 let nuevoComp = prompt("Ingrese un nuevo componente");
 componentes.push(nuevoComp);
 console.log(componentes);
 
 
-for(const prod of componentes){
-    console.log(prod.nombre);
-    console.log(prod.precio);
+for (const prod of componentes) {
+    console.log(prod);
 }
+
+//Dom
+
+const comp = [{ id: 1, nombre: "Ryzen 5 3600", precio: 300 },
+{ id: 2, nombre: "Intel i9 10900", precio: 700 },
+{ id: 3, nombre: "Ryzen 5 3400", precio: 100 }];
+
+for (const prod of comp) {
+    let contenedor = document.createElement("div");
+    //Definimos el innerHTML del elemento con una plantilla de texto
+    contenedor.innerHTML = `<h3> ID: ${prod.id}</h3>
+                            <p>  Producto: ${prod.nombre}</p>
+                            <b> $ ${prod.precio}</b>`;
+    document.body.appendChild(contenedor);
+    
+}
+
+
+
+
+
 
 
 
