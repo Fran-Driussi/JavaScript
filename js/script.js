@@ -111,11 +111,6 @@ for (let i = 0; i < productos.length; i++) {
 }
 
 
-productos.unshift("Placas")
-const compus = productos.slice(1, 2);
-
-console.log(productos);
-console.log(compus);
 
 //arrays con objetos
 
@@ -130,12 +125,17 @@ for (const prod of componentes) {
     console.log(prod);
 }
 
-//Dom
 
+//
 const comp = [{ id: 1, nombre: "Ryzen 5 3600", precio: 300 },
 { id: 2, nombre: "Intel i9 10900", precio: 700 },
 { id: 3, nombre: "Ryzen 5 3400", precio: 100 }];
 
+//HOF
+const nombres =comp.map((el)=> el.nombre)
+console.log(nombres)
+
+//dom
 for (const prod of comp) {
     let contenedor = document.createElement("div");
     //Definimos el innerHTML del elemento con una plantilla de texto
