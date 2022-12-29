@@ -1,6 +1,6 @@
 
 
-function ingresar() {
+ /*function ingresar() {
     let nombreUsuario = prompt("Ingrese su nombre de usuario");
     console.log("Nombre de usuario " + nombreUsuario);
 
@@ -135,7 +135,7 @@ const comp = [{ id: 1, nombre: "Ryzen 5 3600", precio: 300 },
 const nombres =comp.map((el)=> el.nombre)
 console.log(nombres)
 
-//dom
+dom
 for (const prod of comp) {
     let contenedor = document.createElement("div");
     //Definimos el innerHTML del elemento con una plantilla de texto
@@ -145,6 +145,28 @@ for (const prod of comp) {
     document.body.appendChild(contenedor);
     
 }
+*/
+
+let emailUsuario = document.getElementById('emailAddress');
+let password = document.getElementById('password');
+let btnLogin = document.getElementById('btnLogin');
+
+
+btnLogin.addEventListener('click', ()=>{
+    localStorage.setItem('email', emailUsuario.value);
+    localStorage.setItem('password', password.value);
+    alert('Bienvenido: '+ emailUsuario.value);
+})
+
+let btnVaciar = document.getElementById('btnVaciarLocalStorage');
+
+btnVaciar.addEventListener('click', ()=>{
+    localStorage.clear();
+    alert('Se han borrado todos los datos');
+})
+
+
+
 
 
 
