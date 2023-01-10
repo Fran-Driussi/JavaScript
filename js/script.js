@@ -2,6 +2,8 @@
 let emailUsuario = document.getElementById('emailAddress');
 let password = document.getElementById('password');
 let btnLogin = document.getElementById('btnLogin');
+let btnVaciar = document.getElementById('btnVaciarLocalStorage');
+let buy = document.getElementById('btnBuy');
 
 
 btnLogin.addEventListener('click', () => {
@@ -11,20 +13,16 @@ btnLogin.addEventListener('click', () => {
 
 })
 
-let btnVaciar = document.getElementById('btnVaciarLocalStorage');
-
 btnVaciar.addEventListener('click', () => {
     localStorage.clear();
     alert('Se han borrado todos los datos');
 })
 
 
-let buy = document.querySelector("#btnBuy")
-
-
-buy.addEventListener('click', () => {
+buy.onclick = () => {
+    localStorage.setItem('compra', buy.value);
     alert('Se agrego el producto al carrito');
-})
+}
 
 
 
