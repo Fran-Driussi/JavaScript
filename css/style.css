@@ -31,16 +31,6 @@
   padding: 10px;
 }
 
-.search-bar {
-  margin: 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.search-bar2 {
-  width: 75%;
-  padding: 1rem;
-}
 
 .card {
   width: 20rem;
