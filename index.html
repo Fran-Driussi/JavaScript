@@ -32,7 +32,7 @@
                             <a class="nav-link " href="./pages/inicio-sesion.html">Iniciar Sesion</a>
                         </li>
                         <li class="nav-item">
-                            <a href="./pages/carrito.html">
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modal">
                                 <img class="carrito" src="./assets/carrito.png" alt="">
                             </a>
                         </li>
@@ -43,18 +43,44 @@
 
     </header>
     <main>
-        <div >
+        <div class="container-xl">
+            <div class="modal" tabindex="-1" role="dialog" id="modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Carrito</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="carrito"></div>
+                        <div class="modal-footer">
+
+                            <button type="button" id="procesarCompra"
+                                    class="btn btn-primary w-100">
+                                    Comprar
+                                </button>
+                        
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cerrar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
             <h2 class="titulo-cata"> <strong>Componentes</strong> </h2>
         </div>
         <!--Comienzo cards-->
-        <div ">
-            <section class="pos-card ">
+        <div>
+            <section class=" pos-card ">
 
-                <div class="row justify-content-center">
+                <div class=" row justify-content-center">
 
-                    <article class="card col-xl-3 col-md-4 col-sm-6 col-xs-12 " >
+                    <article class="card col-xl-3 col-md-4 col-sm-6 col-xs-12 ">
                         <div>
-                            <img class="card-img-top " src="./assets/Rx 570 8gb.webp" alt="">
+                            <img class="card-img-top " id="img" src="./assets/Rx 570 8gb.webp" alt="">
                         </div>
 
                         <div class="card-body">
@@ -100,7 +126,7 @@
 
                     <article class="card div col-xl-3 col-md-4 col-sm-6 col-xs-12">
                         <div>
-                            <img class="card-img-top img-fluid" src="./assets/Gabinete mastra.webp" alt="">
+                            <img class="card-img-top img-fluid" id="img" src="./assets/Gabinete mastra.webp" alt="">
                         </div>
 
                         <div class="card-body">
