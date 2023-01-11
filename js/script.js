@@ -7,7 +7,7 @@ let card = document.querySelectorAll('.card');
 let compra = document.querySelector('#procesarCompra');
 
 if (btnLogin) {
-    btnLogin.addEventListener('click', (e) => {
+    btnLogin.addEventListener('click', () => {
         localStorage.setItem('email', JSON.stringify(emailUsuario.value));
         localStorage.setItem('password', JSON.stringify(password.value));
         const Toast = Swal.mixin({
@@ -27,14 +27,18 @@ if (btnLogin) {
             title: 'Logeado correctamente'
         })
 
-        e.preventDefault();
+        ;
 
-
+      
+        
+        
 
     })
 }
-
-
+if(location.href == 'http://127.0.0.1:5500/index.html'){
+    let user = document.querySelector('#user');
+    user.innerText = localStorage.getItem('email') || 'Iniciar sesion'
+}
 
 if (btnVaciar) {
     btnVaciar.addEventListener('click', (e) => {
@@ -111,26 +115,37 @@ function limpiarHTML(){
     carro.innerHTML="";
 }
 
-compra.addEventListener('click', (e) =>{
-    Swal.fire({
-        title: 'Compra realizada con exito',
-        icon: 'success',
-        confirmButtonText: 'Cool'
-    })
-    e.preventDefault();
-    limpiarHTML();
+ compra.addEventListener('click', (e) =>{
+    
+        Swal.fire({
+            title: 'Compra realizada con exito',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+        })
+        e.preventDefault();
+        limpiarHTML();
+    
+        localStorage.setItem('compra', JSON.stringify(carrito.value));
 })
 
 
 carro.addEventListener('click',(e) =>{
-    if(e.target.classList.contains('btn-danger')){
+    /*if(e.target.classList.contains('btn-danger')){
         let prodId = e.target.getAttribute('id');
         carrito = carrito.filter(
             (producto) => producto.id !== prodId
         )
         
+        
 
     }
+*/
+
+let productId = e.target.getAttribute('id');
+carrito= carrito.find(producto => producto.id === productId);
+            if(productId != null)  {
+                carrito.splice(producto.indexOf(productId), 1)
+            }
 
 })
 
