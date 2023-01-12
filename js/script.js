@@ -7,7 +7,7 @@ let card = document.querySelectorAll('.card');
 let compra = document.querySelector('#procesarCompra');
 
 if (btnLogin) {
-    btnLogin.addEventListener('click', () => {
+    btnLogin.addEventListener('click', (e) => {
         localStorage.setItem('email', JSON.stringify(emailUsuario.value));
         localStorage.setItem('password', JSON.stringify(password.value));
         const Toast = Swal.mixin({
@@ -26,14 +26,9 @@ if (btnLogin) {
             icon: 'success',
             title: 'Logeado correctamente'
         })
-
-        ;
-
-      
-        
-        
-
+        e.preventDefault()
     })
+    
 }
 if(location.href == 'http://127.0.0.1:5500/index.html'){
     let user = document.querySelector('#user');
@@ -84,10 +79,10 @@ function leerDatosProd(producto) {
         titulo: producto.querySelector('.card-title').textContent,
         precio: producto.querySelector('.precio').textContent,
         texto: producto.querySelector('.card-text').textContent,
-        id: producto.querySelector('.btn').getAttribute('id'),
+        id: producto.querySelector('.btn').getAttribute('data-id'),
     }
-    console.log(infoProd)
-    carrito = [...carrito, infoProd];
+    
+    carrito = [...carrito, infoProd];;
     carroHTML();
 
 }
@@ -115,7 +110,8 @@ function limpiarHTML(){
     carro.innerHTML="";
 }
 
- compra.addEventListener('click', (e) =>{
+if(compra !== null){
+compra.addEventListener('click', (e) =>{
     
         Swal.fire({
             title: 'Compra realizada con exito',
@@ -125,29 +121,37 @@ function limpiarHTML(){
         e.preventDefault();
         limpiarHTML();
     
-        localStorage.setItem('compra', JSON.stringify(carrito.value));
+        
 })
+}
 
 
 carro.addEventListener('click',(e) =>{
-    /*if(e.target.classList.contains('btn-danger')){
+    if(e.target.classList.contains('btn-danger')){
         let prodId = e.target.getAttribute('id');
         carrito = carrito.filter(
             (producto) => producto.id !== prodId
-        )
-        
-        
-
-    }
-*/
-
-let productId = e.target.getAttribute('id');
-carrito= carrito.find(producto => producto.id === productId);
-            if(productId != null)  {
-                carrito.splice(producto.indexOf(productId), 1)
+        );
+        carroHTML();
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
+        })
 
+        Toast.fire({
+            icon: 'error',
+            title: 'Eliminaste el producto del carrito'
+        })
+    }
 })
+
 
 
 
