@@ -81,10 +81,8 @@ function leerDatosProd(producto) {
         texto: producto.querySelector('.card-text').textContent,
         id: producto.querySelector('.btn').getAttribute('data-id'),
     }
-    
     carrito = [...carrito, infoProd];;
     carroHTML();
-
 }
 
 const carro = document.querySelector('#carrito')
@@ -120,8 +118,7 @@ compra.addEventListener('click', (e) =>{
         })
         e.preventDefault();
         limpiarHTML();
-    
-        
+        localStorage.setItem('Compra', JSON.stringify(carrito));     
 })
 }
 
