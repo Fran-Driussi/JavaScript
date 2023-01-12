@@ -34,6 +34,10 @@ if(location.href == 'http://127.0.0.1:5500/index.html'){
     let user = document.querySelector('#user');
     user.innerText = localStorage.getItem('email') || 'Iniciar sesion'
 }
+if(location.href == 'https://fran-driussi.github.io'){
+    let user = document.querySelector('#user');
+    user.innerText = localStorage.getItem('email') || 'Iniciar sesion'
+}
 
 if (btnVaciar) {
     btnVaciar.addEventListener('click', (e) => {
