@@ -1,0 +1,44 @@
+[
+  {
+    "img": "../assets/rx570.webp",
+    "nombre": "Radeon RX 570 8GB",
+    "precio": 155,
+    "texto": "Este componente electrónico procesa la información que llega al dispositivo y los transforma en imágenes o videos para mostrarla visualmente. Es ideal para trabajar con aplicaciones gráficas ya que permite obtener imágenes más nítidas.",
+    "id": 1
+  },
+  {
+    "img": "../assets/placaa520m.webp",
+    "nombre": "Motherboard A520m",
+    "precio": 202,
+    "texto": "Socket AMD AM4: Listo para procesadores de escritorio Ryzen 5000 Series / 5000 G-Series / 4000 G-Series / 3000 Series. Refrigeración completa: Disipador de calor VRM, disipador de calor PCH y Fan Xpert 2+++ Lorem ipsum dolor sit.",
+    "id": 2
+  },
+  {
+    "img": "../assets/gabastra.webp",
+    "nombre": "Gabinete Brainstorm Mastra",
+    "precio": 214,
+    "texto": "SOPORTE DE MOTHER: ITX, M-ATX, ATX TIPO DE VENTANA: Vidrio templado COLOR: Negro -Incluye:4 Coolers AR-20 RGB 1 CONTROLADORA 1 CONTROL REMOTO",
+    "id": 3
+  },
+  {
+    "img": "../assets/aurishyperx.jpg",
+    "nombre": "HyperX Cloud Flight Black",
+    "precio": 130,
+    "texto": "Ideado para los gamers más exigentes, el HyperX Cloud Flight tiene todo lo que un jugador busca. Su conectividad inalámbrica permite moverte de un lugar a otro sin cables.",
+    "id": 4
+  },
+  {
+    "img": "../assets/ryzen3200g.jpg",
+    "nombre": "Ryzen 3 3200g 4.0GHz Turbo",
+    "precio": 840,
+    "texto": "Clave en el rendimiento de tu computadora de escritorio, ya no tenés que pensar en cómo distribuir el tiempo y acciones porque ahora las tareas en simultáneo son posibles.",
+    "id": 5
+  },
+  {
+    "img": "../assets/geil16gb.jpg",
+    "nombre": "GeiL DDR4 16GB 3000MHz",
+    "precio": 4000,
+    "texto": "Potenciá tu PC Con su tecnología DDR4, mejorará el desempeño de tu equipo, ya que opera en 3 y 4 canales, generando mayor fluidez y velocidad en la transferencia de datos",
+    "id": 6
+  }
+]

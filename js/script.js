@@ -153,6 +153,42 @@ carro.addEventListener('click',(e) =>{
     }
 })
 
+const componentes = document.querySelector('#componentes')
+
+fetch("/data.json")
+.then ((resp)=> resp.json())
+.then ((data)=> {
+    data.forEach((prod) =>{
+        const sec = document.createElement('section')
+        sec.innerHTML= `
+        <section class=" pos-card ">
+
+                <div class=" row justify-content-center">
+
+                    <article class="card col-xl-3 col-md-4 col-sm-6 col-xs-12 ">
+                        <div>
+                            <img class="card-img-top "  src=${prod.img} alt="">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title"> ${prod.nombre} </h2>
+                            <p class="precio"><b>$${prod.precio}</b></p>
+                            <div class="card-text">
+                                <p>${prod.texto}</p>
+                            </div>
+
+                            <button class="btn btn-primary " data-id=${prod.id}> Comprar </button>
+
+                        </div>
+                    </article>
+
+        `
+
+        componentes.append(sec)
+
+    })
+})  
+
+
 
 
 
