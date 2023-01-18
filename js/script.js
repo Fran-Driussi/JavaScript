@@ -1,11 +1,11 @@
-
+//DOM
 let emailUsuario = document.getElementById('emailAddress');
 let password = document.getElementById('password');
 let btnLogin = document.querySelector('#btnLogin');
 let btnVaciar = document.getElementById('btnVaciarLocalStorage');
 let card = document.querySelectorAll('.card');
 let compra = document.querySelector('#procesarCompra');
-
+// inicio login
 if (btnLogin) {
     btnLogin.addEventListener('click', (e) => {
         localStorage.setItem('email', JSON.stringify(emailUsuario.value));
@@ -53,28 +53,7 @@ if (btnVaciar) {
 
 
 
-card.forEach((card) => {
-    card.addEventListener('click', (e) => {
-        leerDatosProd(e.target.parentElement);
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
-
-        Toast.fire({
-            icon: 'success',
-            title: 'Agregaste el producto al carrito'
-        })
-
-    })
-})
+// inicio catalogo
 
 let carrito = [];
 
@@ -86,7 +65,7 @@ function leerDatosProd(producto) {
         id: producto.querySelector('.btn').getAttribute('data-id'),
     }
     carrito = [...carrito, infoProd];;
-    carroHTML();
+    carroHTML(); 
 }
 
 const carro = document.querySelector('#carrito')
@@ -162,9 +141,7 @@ fetch("/data.json")
         const sec = document.createElement('section')
         sec.innerHTML= `
         <section class=" pos-card ">
-
                 <div class=" row justify-content-center">
-
                     <article class="card col-xl-3 col-md-4 col-sm-6 col-xs-12 ">
                         <div>
                             <img class="card-img-top "  src=${prod.img} alt="">
@@ -175,21 +152,35 @@ fetch("/data.json")
                             <div class="card-text">
                                 <p>${prod.texto}</p>
                             </div>
-
                             <button class="btn btn-primary " data-id=${prod.id}> Comprar </button>
-
                         </div>
                     </article>
-
         `
-
         componentes.append(sec)
+        sec.addEventListener('click', (e) => {
+            leerDatosProd(e.target.parentElement);
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+    
+            Toast.fire({
+                icon: 'success',
+                title: 'Agregaste el producto al carrito'
+            })
+    
+        })
+    })
 
     })
-})  
-
-
-
+ 
 
 
 
