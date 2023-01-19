@@ -28,13 +28,13 @@ if (btnLogin) {
         })
         e.preventDefault()
     })
-    
+
 }
-if(location.href == 'http://127.0.0.1:5500/index.html'){
+if (location.href == 'http://127.0.0.1:5500/index.html') {
     let user = document.querySelector('#user');
     user.innerText = localStorage.getItem('email') || 'Iniciar sesion'
 }
-if(location.href == 'https://fran-driussi.github.io'){
+if (location.href == 'https://fran-driussi.github.io') {
     let user = document.querySelector('#user');
     user.innerText = localStorage.getItem('email') || 'Iniciar sesion'
 }
@@ -65,7 +65,7 @@ function leerDatosProd(producto) {
         id: producto.querySelector('.btn').getAttribute('data-id'),
     }
     carrito = [...carrito, infoProd];;
-    carroHTML(); 
+    carroHTML();
 }
 
 const carro = document.querySelector('#carrito')
@@ -87,13 +87,13 @@ function carroHTML() {
     })
 }
 
-function limpiarHTML(){
-    carro.innerHTML="";
+function limpiarHTML() {
+    carro.innerHTML = "";
 }
 
-if(compra !== null){
-compra.addEventListener('click', (e) =>{
-    
+if (compra !== null) {
+    compra.addEventListener('click', (e) => {
+
         Swal.fire({
             title: 'Compra realizada con exito',
             icon: 'success',
@@ -101,13 +101,13 @@ compra.addEventListener('click', (e) =>{
         })
         e.preventDefault();
         limpiarHTML();
-        localStorage.setItem('Compra', JSON.stringify(carrito));     
-})
+        localStorage.setItem('Compra', JSON.stringify(carrito));
+    })
 }
 
 
-carro.addEventListener('click',(e) =>{
-    if(e.target.classList.contains('btn-danger')){
+carro.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn-danger')) {
         let prodId = e.target.getAttribute('id');
         carrito = carrito.filter(
             (producto) => producto.id !== prodId
@@ -135,13 +135,13 @@ carro.addEventListener('click',(e) =>{
 const componentes = document.querySelector('#componentes')
 
 fetch("/data.json")
-.then ((resp)=> resp.json())
-.then ((data)=> {
-    data.forEach((prod) =>{
-        const sec = document.createElement('section')
-        sec.innerHTML= `
-        <section class=" pos-card ">
-                <div class=" row justify-content-center">
+    .then((resp) => resp.json())
+    .then((data) => {
+        data.forEach((prod) => {
+            const sec = document.createElement('p')
+            sec.innerHTML = `
+        <section class="pos-card">
+                <div class=" row ">
                     <article class="card col-xl-3 col-md-4 col-sm-6 col-xs-12 ">
                         <div>
                             <img class="card-img-top "  src=${prod.img} alt="">
@@ -156,31 +156,31 @@ fetch("/data.json")
                         </div>
                     </article>
         `
-        componentes.append(sec)
-        sec.addEventListener('click', (e) => {
-            leerDatosProd(e.target.parentElement);
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
+            componentes.append(sec)
+            sec.addEventListener('click', (e) => {
+                leerDatosProd(e.target.parentElement);
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Agregaste el producto al carrito'
+                })
+
             })
-    
-            Toast.fire({
-                icon: 'success',
-                title: 'Agregaste el producto al carrito'
-            })
-    
         })
-    })
 
     })
- 
+
 
 
 
